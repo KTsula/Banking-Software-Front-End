@@ -1,83 +1,98 @@
-<!-- Home Page -->
 <template>
-  <div>
-    <!-- Set a header tag with 3 buttons; Accounts that should lead to the /accounts page, Skull that should lead to the /skull page and Home Page one that leads to /-->
-    <header>
-      <nav>
-        <a href="/" class="headerElem">Home Page</a>
-        <a href="/accounts" class="headerElem">Accounts</a>
-        <a href="/skull" class="headerElem">Skull</a>
-      </nav>
+  <div id="app">
+    <header class="header" :style="{ backgroundImage: `url(${backgroundImage})` }">
+      <h1>Welcome to IE Bank</h1>
     </header>
-
-    <h1 id="title" class="text">Home Page</h1>
-    <p id="shortDescription" class="text">Welcome to the IE Bank</p>
-    <!-- Add an Image -->
-    <img src="../assets/logo.png" alt="IE Bank" width="300" height="300" />
-
-    <nav id="buttonNav">
-      <router-link to="/accounts">
-        <button type="button" class="btn btn-secondary">Accounts</button>
-      </router-link>
-
-      <router-link to="/skull">
-        <button type="button" class="btn btn-secondary">Skull</button>
-      </router-link>
-    </nav>
+    <template>
+      <div class="button-container">
+        <router-link to="/skull" class="button">Skull</router-link>
+        <router-link to="/accounts" class="button">Account Management</router-link>
+      </div>
+    </template>
+    <section class="section">
+      <h2>Mission & Vision</h2>
+      <p>Ace the assignment of building online bank!</p>
+      <p>Get a good grade in this assignment...</p>
+    </section>
   </div>
 </template>
 
+
+<script>
+export default {
+  name: 'WelcomePage',
+  data() {
+    return {
+      backgroundImage: require('../assets/images/header-background.jpg')
+    }
+  }
+}
+</script>
+
+
 <style scoped>
-header {
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: center;
-  z-index: 1;
+body {
+  font-family: Arial, sans-serif;
 }
 
-.headerElem {
-  padding: 20px;
-  text-decoration: none;
-  font-size: 20px;
-  color: black;
+
+.menu {
+  background-color: #333;
+  overflow: hidden;
 }
 
-.headerElem:hover {
-  background-color: #ddd;
-  color: black;
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.text {
-  text-align: center;
-}
 
-#title {
-  margin-top: 30px;
-  font-size: 50px;
-}
-
-img {
+.menu li a {
   display: block;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-#buttonNav {
+
+.header {
+  padding: 60px;
+  text-align: center;
+  color: white;
+  background-image: "require(`./assets/images/header-background.png`)";
+  background-size: cover;
+}
+
+
+.section {
+  padding: 20px;
+}
+
+
+.section h2 {
+  color: #ea81c4;
+}
+
+
+.button-container {
   display: flex;
   justify-content: center;
   margin-top: 50px;
 }
 
-button {
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 10px;
-  font-size: 20px;
-  text-align: center;
 
-  /* Make the buttons the same size regardless of the text */
-  width: 100px;
-  height: 50px;
+.button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #ea81c4;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 </style>
