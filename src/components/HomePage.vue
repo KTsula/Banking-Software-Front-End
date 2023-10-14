@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header class="header" :style="{ backgroundImage: `url(${backgroundImage})` }">
-      <h1>Welcome to IE Bank</h1>
+      <h1>Welcome to IE Online Bank</h1>
     </header>
     <template>
       <div class="button-container">
